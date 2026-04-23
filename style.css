@@ -353,8 +353,7 @@ ul, ol { list-style: none; }
 .p-hero {
   position: relative;
   padding: var(--space-6) 0 var(--space-8);
-  background: var(--gradient-brand);
-  color: var(--color-text-on-brand);
+  background: var(--color-bg);
   overflow: hidden;
   isolation: isolate;
 }
@@ -362,9 +361,7 @@ ul, ol { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.18), transparent 42%),
-    radial-gradient(circle at 88% 92%, rgba(255, 255, 255, 0.10), transparent 50%);
+  background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(16, 123, 255, 0.06), transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
@@ -384,7 +381,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-en);
   font-size: var(--text-sm);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: var(--space-1);
@@ -393,16 +390,15 @@ ul, ol { list-style: none; }
   font-size: 2.25rem;
   font-weight: 900;
   line-height: 1.3;
-  color: #ffffff;
+  color: var(--color-text);
   letter-spacing: 0.02em;
   margin-bottom: var(--space-1);
   font-kerning: normal;
   font-feature-settings: "palt" 1;
-  text-shadow: 0 4px 18px rgba(10, 36, 86, 0.15);
 }
 .p-hero__lead {
   font-size: var(--text-base);
-  color: var(--color-text-on-brand-mute);
+  color: var(--color-text-mute);
   line-height: 1.85;
   margin-bottom: var(--space-4);
 }
@@ -414,6 +410,14 @@ ul, ol { list-style: none; }
 }
 .p-hero__actions .c-button {
   min-width: 240px;
+}
+/* Hero上のセカンダリボタン: 白背景なのでゴーストではなくアウトライン */
+.p-hero__actions .c-button--ghost {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.p-hero__actions .c-button--ghost:hover {
+  background: rgba(16, 123, 255, 0.06);
 }
 .p-hero__visual { width: 100%; }
 .p-hero__visual-image {
@@ -1313,6 +1317,99 @@ ul, ol { list-style: none; }
     justify-content: space-between;
     text-align: left;
   }
+}
+
+/* --- p-pdca (PDCAサイクル図) --- */
+.p-pdca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+.p-pdca__cycle {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;
+}
+.p-pdca__cycle-svg {
+  width: 100%;
+  height: 100%;
+}
+.p-pdca__cycle-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+.p-pdca__cycle-center-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-mute);
+  line-height: 1.5;
+}
+.p-pdca__cycle-center-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+.p-pdca__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 480px;
+}
+.p-pdca__step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+.p-pdca__step-badge {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-en);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+.p-pdca__step-badge--blue   { background: var(--color-primary); }
+.p-pdca__step-badge--orange { background: var(--color-accent-orange); }
+.p-pdca__step-badge--green  { background: var(--color-accent-green); }
+.p-pdca__step-body {}
+.p-pdca__step-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.p-pdca__step-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-mute);
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .p-pdca {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-12);
+  }
+  .p-pdca__cycle { width: 320px; height: 320px; }
+  .p-pdca__steps { max-width: 400px; }
 }
 
 /* ===== 7. New Sections (design_tunag.md 追加分) ===== */

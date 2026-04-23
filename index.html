@@ -50,7 +50,7 @@
             人と組織に働きがいを
           </h1>
           <p class="p-hero__lead">
-            組織課題の分析から、組織改善施策の実行まで。<br class="u-sp-only">
+            組織課題の分析から、組織改善施策の実行まで。<br>
             100社100通りに対応できる組織改善クラウドです。
           </p>
 
@@ -117,6 +117,62 @@
             分析 → 実行 → 浸透のPDCAを回し、組織の働きがいを継続的に高めます。
           </p>
         </header>
+      </div>
+
+      <!-- PDCA サイクル図 -->
+      <div class="l-container">
+        <div class="p-pdca">
+          <div class="p-pdca__cycle" aria-hidden="true">
+            <svg class="p-pdca__cycle-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- 分析 (青) -->
+              <path d="M100 100 L100 18 A82 82 0 0 1 182 100 Z" fill="#107BFF" opacity="0.9"/>
+              <!-- 実行 (オレンジ) -->
+              <path d="M100 100 L182 100 A82 82 0 0 1 100 182 Z" fill="#FF9500" opacity="0.9"/>
+              <!-- 浸透 (緑) -->
+              <path d="M100 100 L100 182 A82 82 0 0 1 18 100 Z" fill="#77DD34" opacity="0.9"/>
+              <!-- 課題特定 (薄青) -->
+              <path d="M100 100 L18 100 A82 82 0 0 1 100 18 Z" fill="#107BFF" opacity="0.45"/>
+              <!-- 中心白円 -->
+              <circle cx="100" cy="100" r="46" fill="white"/>
+              <!-- ラベル: 分析 -->
+              <text x="138" y="68" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="'Noto Sans JP',sans-serif">分析</text>
+              <!-- ラベル: 実行 -->
+              <text x="154" y="138" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="'Noto Sans JP',sans-serif">実行</text>
+              <!-- ラベル: 浸透 -->
+              <text x="62" y="152" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="'Noto Sans JP',sans-serif">浸透</text>
+              <!-- 矢印 -->
+              <circle cx="100" cy="100" r="82" stroke="white" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+            </svg>
+            <div class="p-pdca__cycle-center">
+              <p class="p-pdca__cycle-center-text">組織改善の</p>
+              <p class="p-pdca__cycle-center-name">TUNAG</p>
+            </div>
+          </div>
+
+          <div class="p-pdca__steps">
+            <div class="p-pdca__step">
+              <span class="p-pdca__step-badge p-pdca__step-badge--blue">分析</span>
+              <div class="p-pdca__step-body">
+                <h3 class="p-pdca__step-title">組織状態の分析で課題を特定</h3>
+                <p class="p-pdca__step-text">サーベイやデータ分析で組織の現状を可視化。エンゲージメントの高低・離職リスクを数値で把握します。</p>
+              </div>
+            </div>
+            <div class="p-pdca__step">
+              <span class="p-pdca__step-badge p-pdca__step-badge--orange">実行</span>
+              <div class="p-pdca__step-body">
+                <h3 class="p-pdca__step-title">課題に合わせた最適な取り組みを実行</h3>
+                <p class="p-pdca__step-text">6万件以上の取り組み事例から最適施策を選択。ノーコードで即日実装できます。</p>
+              </div>
+            </div>
+            <div class="p-pdca__step">
+              <span class="p-pdca__step-badge p-pdca__step-badge--green">浸透</span>
+              <div class="p-pdca__step-body">
+                <h3 class="p-pdca__step-title">取り組みの浸透で効果を最大化</h3>
+                <p class="p-pdca__step-text">施策を全従業員のスマホへ届け、利用率・反応率をトラッキング。PDCAを回しながら成果を最大化します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="p-solution__list">
