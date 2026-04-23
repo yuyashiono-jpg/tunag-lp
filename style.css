@@ -13,32 +13,39 @@
 
 /* ===== 1. Design Tokens ===== */
 :root {
-  /* --- Primary Navy --- */
-  --color-primary: #18408a;
-  --color-primary-hover: #102d63;
-  --color-primary-deep: #0a2456;
+  /* --- Primary TUNAG Blue --- */
+  --color-primary: #107BFF;
+  --color-primary-hover: #0062e0;
+  --color-primary-deep: #0A3E7D;        /* フッター背景・深みアクセント */
 
   /* --- Brand Gradient --- */
-  --color-brand-blue: #4578d8;
-  --color-brand-aqua: #2aaadd;
-  --gradient-brand: linear-gradient(90deg, #4578d8 0%, #2aaadd 100%);
+  --color-brand-blue: #107BFF;          /* TUNAG Blue (グラデ始点) */
+  --color-brand-aqua: #7DC4FF;          /* Extended Blue Light (グラデ終点) */
+  --gradient-brand: linear-gradient(135deg, #107BFF 0%, #7DC4FF 100%);
+
+  /* --- Secondary Brand Colors --- */
+  --color-accent-black: #283E59;
+  --color-accent-orange: #FF9500;
+  --color-accent-green: #77DD34;
+  --color-accent-yellow: #FED419;
+  --color-accent-red: #F44646;
 
   /* --- Text --- */
-  --color-text: #0f1b3d;
-  --color-text-mute: #5b6478;
+  --color-text: #283E59;
+  --color-text-mute: #475569;
   --color-text-on-brand: #ffffff;
   --color-text-on-brand-mute: rgba(255, 255, 255, 0.85);
 
   /* --- Neutrals --- */
   --color-bg: #ffffff;
-  --color-bg-soft: #f5f8fc;
-  --color-bg-cool: #eef3fa;
-  --color-border: #e1e7f0;
+  --color-bg-soft: #F1F5F9;
+  --color-bg-cool: #E2E8F0;
+  --color-border: #94A3B8;
 
   /* --- Functional --- */
-  --color-success: #2d9d78;
-  --color-warning: #d97706;
-  --color-danger: #d94545;
+  --color-success: #77DD34;
+  --color-warning: #FF9500;
+  --color-danger: #F44646;
 
   /* --- Fonts --- */
   --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
@@ -73,13 +80,13 @@
   --radius-md: 12px;
   --radius-lg: 16px;
 
-  /* --- Shadows (Material Design風の二層影 / ブランドグラデカラー活用) --- */
+  /* --- Shadows (TUNAG Blue ベースの二層影) --- */
   --shadow-card:
-    0 3px 10px rgba(69, 120, 216, 0.14),
-    0 20px 44px rgba(42, 170, 221, 0.10);
+    0 3px 10px rgba(16, 123, 255, 0.14),
+    0 20px 44px rgba(125, 196, 255, 0.10);
   --shadow-card-strong:
-    0 6px 16px rgba(69, 120, 216, 0.22),
-    0 32px 64px rgba(42, 170, 221, 0.16);
+    0 6px 16px rgba(16, 123, 255, 0.22),
+    0 32px 64px rgba(125, 196, 255, 0.16);
 }
 
 /* ===== 2. Reset & Base ===== */
@@ -122,7 +129,7 @@ button {
 ul, ol { list-style: none; }
 
 :focus-visible {
-  outline: 2px solid var(--color-brand-aqua);
+  outline: 2px solid var(--color-brand-blue);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -730,7 +737,7 @@ ul, ol { list-style: none; }
   width: 16px;
   height: 16px;
   margin-top: 5px;
-  color: var(--color-brand-aqua);
+  color: var(--color-brand-blue);
 }
 @media (min-width: 768px) {
   .p-solution__list { padding: 0 var(--space-4); }
@@ -1306,4 +1313,355 @@ ul, ol { list-style: none; }
     justify-content: space-between;
     text-align: left;
   }
+}
+
+/* ===== 7. New Sections (design_tunag.md 追加分) ===== */
+
+/* --- p-reasons (TUNAGが選ばれる5つの理由 / 2カラム大画像) --- */
+.p-reasons__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+.p-reasons__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.p-reasons__visual {
+  display: flex;
+  justify-content: center;
+}
+.p-reasons__image {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+.p-reasons__label {
+  font-family: var(--font-en);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-brand-blue);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+.p-reasons__title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+  font-kerning: normal;
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.02em;
+}
+.p-reasons__text {
+  font-size: var(--text-base);
+  color: var(--color-text-mute);
+  line-height: 1.85;
+}
+@media (min-width: 768px) {
+  .p-reasons__list { padding: 0 var(--space-4); }
+  .p-reasons__image { max-width: 600px; }
+  .p-reasons__title { font-size: var(--text-2xl); }
+}
+@media (min-width: 1024px) {
+  .p-reasons__list { gap: var(--space-16); }
+  .p-reasons__item {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .p-reasons__item--reverse {
+    grid-template-columns: 2fr 3fr;
+  }
+  .p-reasons__item--reverse .p-reasons__visual { order: 2; }
+  .p-reasons__item--reverse .p-reasons__content { order: 1; }
+  .p-reasons__image {
+    max-width: none;
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+  }
+  .p-reasons__content { padding: var(--space-4) 0; }
+  .p-reasons__title { font-size: 2.25rem; }
+}
+
+/* --- p-attempts (取り組み事例) --- */
+.p-attempts {
+  text-align: center;
+}
+.p-attempts__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+.p-attempts__card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.p-attempts__card-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: var(--color-bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p-attempts__card-body {
+  padding: var(--space-3);
+}
+.p-attempts__card-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.5;
+  margin-bottom: var(--space-1);
+}
+.p-attempts__card-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-mute);
+  line-height: 1.75;
+}
+@media (min-width: 768px) {
+  .p-attempts__grid { grid-template-columns: repeat(3, 1fr); }
+  .p-attempts__card-image { height: 200px; }
+}
+
+/* --- p-pricing (料金案内) --- */
+.p-pricing {
+  text-align: center;
+}
+.p-pricing__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.p-pricing__card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: left;
+  box-shadow: var(--shadow-card);
+}
+.p-pricing__card--highlight {
+  border-color: var(--color-primary);
+  border-width: 2px;
+  box-shadow: var(--shadow-card-strong);
+}
+.p-pricing__card-label {
+  font-family: var(--font-en);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-brand-blue);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+.p-pricing__card-name {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+.p-pricing__card-price {
+  font-family: var(--font-en);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+.p-pricing__card-unit {
+  font-family: var(--font-jp);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-mute);
+  margin-left: 4px;
+}
+.p-pricing__card-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-mute);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+.p-pricing__card-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.p-pricing__card-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+.p-pricing__card-features li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  background: var(--gradient-brand);
+  border-radius: 50%;
+}
+.p-pricing__note {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-mute);
+}
+.p-pricing__note a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .p-pricing__cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --- p-faq (よくある質問・アコーディオン) --- */
+.p-faq__list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.p-faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+.p-faq__item:first-child { border-top: 1px solid var(--color-border); }
+.p-faq__question {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-4) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  text-align: left;
+  transition: color .2s ease;
+}
+.p-faq__question:hover { color: var(--color-primary); }
+.p-faq__q-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-family: var(--font-en);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 2px;
+}
+.p-faq__q-text {
+  flex: 1;
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.6;
+}
+.p-faq__q-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-top: 4px;
+}
+.p-faq__q-icon::before,
+.p-faq__q-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.p-faq__q-icon::before {
+  width: 12px; height: 2px;
+  top: 9px; left: 4px;
+}
+.p-faq__q-icon::after {
+  width: 2px; height: 12px;
+  top: 4px; left: 9px;
+}
+.p-faq__item.is-open .p-faq__q-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+.p-faq__answer {
+  display: none;
+  padding: 0 0 var(--space-4) calc(28px + var(--space-3));
+}
+.p-faq__item.is-open .p-faq__answer { display: block; }
+.p-faq__answer p {
+  font-size: var(--text-base);
+  color: var(--color-text-mute);
+  line-height: 1.85;
+}
+
+/* --- p-footer 追加情報 (電話番号・会社情報・バッジ) --- */
+.p-footer__contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+.p-footer__phone {
+  font-family: var(--font-en);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+.p-footer__phone-hours {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.55);
+}
+.p-footer__company-info {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+  margin-top: var(--space-2);
+}
+.p-footer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.p-footer__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-en);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  white-space: nowrap;
 }

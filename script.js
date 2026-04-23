@@ -93,4 +93,21 @@
   function easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
   }
+
+  // FAQ アコーディオン
+  document.querySelectorAll('.p-faq__question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.p-faq__item');
+      var isOpen = item.classList.contains('is-open');
+      // 他を全部閉じる
+      document.querySelectorAll('.p-faq__item.is-open').forEach(function (el) {
+        el.classList.remove('is-open');
+        el.querySelector('.p-faq__question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 })();
